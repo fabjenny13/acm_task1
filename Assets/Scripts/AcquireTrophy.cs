@@ -15,11 +15,16 @@ public class AcquireTrophy : MonoBehaviour
 
     private void Start()
     {
-        
+        trophyacquireText.gameObject.SetActive(false);
     }
     private void Update()
     {
-        if(Input.GetKeyDown(KeyCode.E) && canCollect)
+        if(transform.parent == null)
+        {
+            GetComponent<BoxCollider>().isTrigger = true;
+        }
+
+        if (Input.GetKeyDown(KeyCode.E) && canCollect)
         {
             transform.position = hand_transform.position;
             this.transform.parent = hand_transform.parent;

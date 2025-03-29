@@ -13,8 +13,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] TextMeshProUGUI trophiesCollected;
     [SerializeField] AcquireTrophy trophy;
     [SerializeField] GameObject gameWonMenu;
-    [SerializeField] AcquireTrophy trophyPrefab;
-    [SerializeField] Transform player;
+    [SerializeField] GameObject player;
 
 
 
@@ -37,15 +36,22 @@ public class GameManager : MonoBehaviour
             trophiesCollected.text = "x " + nTrophiesCollected;
             gameWonMenu.SetActive(true);
             trophy.isCollected = false;
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
         }
     }
 
 
     public void RestartGame()
     {
-        Destroy(trophy);
-        player.position = startingPos;
-        trophy = Instantiate(trophyPrefab, trophyPos, Quaternion.identity);
-        
+        player.transform.position = startingPos;
+
+        trophy.transform.SetParent(null);
+        trophy.transform.position = trophyPos;
+
+        gameWonMenu.SetActive(false);
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+
     }
 }
