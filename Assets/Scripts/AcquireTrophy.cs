@@ -9,31 +9,45 @@ public class AcquireTrophy : MonoBehaviour
 { 
     [SerializeField]
     Transform hand_transform;
-    TextMeshPro trophyacquireText;
+    public TextMeshProUGUI trophyacquireText;
     public bool isCollected = false;
+    private bool canCollect = false;
+
     private void Start()
     {
         
     }
     private void Update()
     {
-        if(Input.GetKeyDown(KeyCode.E))
+        if(Input.GetKeyDown(KeyCode.E) && canCollect)
         {
             transform.position = hand_transform.position;
             this.transform.parent = hand_transform.parent;
-            Debug.Log("Trophy acquired!!!");
             isCollected = true;
+            CloseTip();
+            GetComponent<BoxCollider>().isTrigger = false;
         }
     }
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("Press E to Collect!");
-        //trophyacquireText.enabled = true;
+        OpenTip();
     }
 
     private void OnTriggerExit(Collider other)
     {
-        //trophyacquireText.enabled = false;
+        CloseTip();
+    }
+
+    void OpenTip()
+    {
+        canCollect = true;
+        trophyacquireText.gameObject.SetActive(true);
+    }
+
+    void CloseTip()
+    {
+        canCollect = false;
+        trophyacquireText.gameObject.SetActive(false);
     }
 }
 
