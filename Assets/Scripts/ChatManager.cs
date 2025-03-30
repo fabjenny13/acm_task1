@@ -11,6 +11,7 @@ public class ChatManager : MonoBehaviour
     public GameObject chatPanel, textObject;
     public InputField chatBox;
     public GameObject scrollView;
+    public Image bgImage;
 
     public Color playerMessage, info;
 

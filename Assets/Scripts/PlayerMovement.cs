@@ -92,6 +92,7 @@ public class PlayerMovement : MonoBehaviour
             if (transform.position == startingPos)
             {
                 gameRestarting = false;
+                canMove = true;
             }
         }
 
@@ -102,6 +103,7 @@ public class PlayerMovement : MonoBehaviour
     public void ResetPosition()
     {
         gameRestarting = true;
+        canMove = false;
         transform.position = startingPos;
     }
 
