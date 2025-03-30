@@ -10,6 +10,7 @@ public class ChatManager : MonoBehaviour
 
     public GameObject chatPanel, textObject;
     public InputField chatBox;
+    public GameObject scrollView;
 
     public Color playerMessage, info;
 
@@ -17,6 +18,10 @@ public class ChatManager : MonoBehaviour
     List<Message> messageList = new List<Message>();
 
     // Update is called once per frame
+    private void Start()
+    {
+        scrollView.gameObject.SetActive(false);
+    }
     void Update()
     {
         if(chatBox.text != "")
@@ -32,13 +37,22 @@ public class ChatManager : MonoBehaviour
             if(!chatBox.isFocused && Input.GetKeyDown(KeyCode.Return))
             {
                 chatBox.ActivateInputField();
+                scrollView.gameObject.SetActive(true);
+
             }
+        }
+
+        if(Input.GetKeyDown(KeyCode.Tab))
+        {
+            scrollView.SetActive(false);
         }
 
     }
 
     public void SendMessageToChat(string text, Message.MessageType messageType)
     {
+        scrollView.gameObject.SetActive(true);
+
         if(messageList.Count >= maxMessages)
         {
             Destroy(messageList[0].textObject.gameObject);

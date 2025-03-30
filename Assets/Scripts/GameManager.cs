@@ -22,6 +22,10 @@ public class GameManager : MonoBehaviour
     {
         gameWonMenu.SetActive(false);
         trophyPos = new Vector3(0.0f, 1.05f, 136.8f);
+        chatManager.SendMessageToChat("Welcome!", Message.MessageType.info);
+        chatManager.SendMessageToChat("Press ENTER to Type in chat.", Message.MessageType.info);
+        chatManager.SendMessageToChat("..And Press TAB to close the chat.", Message.MessageType.info);
+        chatManager.SendMessageToChat("Sorry bout the bugs that needs fixing. Have fun!", Message.MessageType.info);
     }
 
     // Update is called once per frame
