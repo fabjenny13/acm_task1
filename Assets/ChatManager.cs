@@ -64,7 +64,7 @@ public class ChatManager : MonoBehaviour
         GameObject newText = Instantiate(textObject, chatPanel.transform);
         newMessage.textObject = newText.GetComponent<Text>();
         newMessage.textObject.text = newMessage.text;
-        //newMessage.textObject.color = MessageTypeColor(messageType);
+        newMessage.textObject.color = MessageTypeColor(messageType);
 
         messageList.Add(newMessage);
     }
@@ -72,9 +72,12 @@ public class ChatManager : MonoBehaviour
     Color MessageTypeColor(Message.MessageType messageType)
     {
         Color color = info;
-        if (messageType == Message.MessageType.playerMessage)
+
+        switch(messageType)
         {
-            color = playerMessage;
+            case Message.MessageType.playerMessage:
+                color = playerMessage;
+                break;
         }
  
         return color;

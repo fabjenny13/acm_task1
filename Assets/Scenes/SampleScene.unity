@@ -1564,8 +1564,8 @@ MonoBehaviour:
   chatPanel: {fileID: 561584734}
   textObject: {fileID: 6948806546841167413, guid: a128bd9f3ca078f4b8ab272ef131af88, type: 3}
   chatBox: {fileID: 767132354}
-  playerMessage: {r: 1, g: 1, b: 1, a: 0}
-  info: {r: 0, g: 0.4522121, b: 1, a: 0}
+  playerMessage: {r: 1, g: 1, b: 1, a: 1}
+  info: {r: 0.1566037, g: 0.7486419, b: 1, a: 1}
   messageList: []
 --- !u!4 &593943563
 Transform:
