@@ -14,12 +14,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameObject gameWonMenu;
     [SerializeField] GameObject player;
 
-
-    List<ChatBox> chats;
-    [SerializeField] ChatBox chatBubble;
-    [SerializeField] GameObject chatPanel;
-    int maxMessages = 25;
-
+   
 
     Vector3 trophyPos;
     
@@ -27,16 +22,12 @@ public class GameManager : MonoBehaviour
     {
         gameWonMenu.SetActive(false);
         trophyPos = new Vector3(0.0f, 1.05f, 136.8f);
-        chats = new List<ChatBox>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Return))
-        {
-            SendMessageToChat("HELLO THERE!");
-        }
+
         //game winning
         if(trophy.isCollected)
         {
@@ -64,18 +55,5 @@ public class GameManager : MonoBehaviour
     }
 
 
-    void SendMessageToChat(string text)
-    {
-        if(chats.Count >= maxMessages)
-        {
-            Destroy(chats[0].gameObject);
-            chats.Remove(chats[0]);
-        }
 
-
-        ChatBox newChat = Instantiate(chatBubble, chatPanel.transform);
-        newChat.Setup(text);
-        chats.Add(newChat);
-
-    }
 }

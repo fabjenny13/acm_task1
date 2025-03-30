@@ -19,6 +19,7 @@ public class AcquireTrophy : MonoBehaviour
     }
     private void Update()
     {
+
         if(transform.parent == null)
         {
             GetComponent<BoxCollider>().isTrigger = true;
@@ -35,6 +36,20 @@ public class AcquireTrophy : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
+        //check if player is looking at trophy
+
+        /**
+        Ray ray = Camera.main.ViewportPointToRay(new Vector3(0,0,0));
+        RaycastHit hit;
+        if (Physics.Raycast(ray, out hit, Mathf.Infinity))
+        {
+            if (hit.collider.gameObject == gameObject)
+            {
+                OpenTip();
+            }
+        }
+        **/
+
         OpenTip();
     }
 
@@ -54,5 +69,8 @@ public class AcquireTrophy : MonoBehaviour
         canCollect = false;
         trophyacquireText.gameObject.SetActive(false);
     }
+
+
+
 }
 

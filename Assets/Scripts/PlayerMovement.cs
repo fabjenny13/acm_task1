@@ -35,6 +35,11 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
+        if(transform.position == startingPos)
+        {
+            gameRestarting = false;
+        }
+
         if (!gameRestarting)
         {
 
@@ -86,6 +91,7 @@ public class PlayerMovement : MonoBehaviour
             }
         }
 
+
     }
 
 
@@ -93,13 +99,7 @@ public class PlayerMovement : MonoBehaviour
     {
         gameRestarting = true;
         transform.position = startingPos;
-        StartCoroutine(Wait(1.0f));
     }
 
-    IEnumerator Wait(float seconds)
-    {
-        yield return new WaitForSeconds(seconds);
-        gameRestarting = false;
-    }
 }
 
