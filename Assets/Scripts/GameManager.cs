@@ -49,6 +49,7 @@ public class GameManager : MonoBehaviour
     public void RestartGame()
     {
         chatManager.ClearChat();
+        chatManager.SendMessageToChat("Trophy Equipped.", Message.MessageType.info);
         player.GetComponent<PlayerMovement>().ResetPosition();
 
         trophy.transform.SetParent(null);
