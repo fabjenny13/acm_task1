@@ -14,7 +14,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameObject gameWonMenu;
     [SerializeField] GameObject player;
 
-   
+    [SerializeField] ChatManager chatManager;
 
     Vector3 trophyPos;
     
@@ -31,6 +31,7 @@ public class GameManager : MonoBehaviour
         //game winning
         if(trophy.isCollected)
         {
+            chatManager.SendMessageToChat("You have won the game.", Message.MessageType.info);
             nTrophiesCollected++;
             trophiesCollected.text = "x " + nTrophiesCollected;
             gameWonMenu.SetActive(true);
@@ -43,10 +44,12 @@ public class GameManager : MonoBehaviour
     }
     public void RestartGame()
     {
+        chatManager.ClearChat();
         player.GetComponent<PlayerMovement>().ResetPosition();
 
         trophy.transform.SetParent(null);
         trophy.transform.position = trophyPos;
+        trophy.transform.rotation = new Quaternion(0f, 0f, 0f, 0f);
 
         gameWonMenu.SetActive(false);
         Cursor.lockState = CursorLockMode.Locked;

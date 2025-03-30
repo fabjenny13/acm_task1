@@ -15,11 +15,6 @@ public class ChatManager : MonoBehaviour
 
     [SerializeField]
     List<Message> messageList = new List<Message>();
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
     // Update is called once per frame
     void Update()
@@ -37,14 +32,6 @@ public class ChatManager : MonoBehaviour
             if(!chatBox.isFocused && Input.GetKeyDown(KeyCode.Return))
             {
                 chatBox.ActivateInputField();
-            }
-        }
-
-        if(!chatBox.isFocused)
-        {
-            if (Input.GetKeyDown(KeyCode.Space))
-            {
-                SendMessageToChat("You pressed the Space bar!", Message.MessageType.info);
             }
         }
 
@@ -81,6 +68,15 @@ public class ChatManager : MonoBehaviour
         }
  
         return color;
+    }
+
+    public void ClearChat()
+    {
+        foreach(Message msg in messageList)
+        {
+            Destroy(msg.textObject.gameObject);
+        }
+        messageList.Clear();
     }
 }
 

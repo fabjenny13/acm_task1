@@ -3086,7 +3086,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 30427260164093568, guid: 414e8da994305fe45ba3b91f7781c519, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 136.8
+      value: 5.4
       objectReference: {fileID: 0}
     - target: {fileID: 30427260164093568, guid: 414e8da994305fe45ba3b91f7781c519, type: 3}
       propertyPath: m_LocalRotation.w
@@ -5748,6 +5748,7 @@ MonoBehaviour:
   trophy: {fileID: 1002075833}
   gameWonMenu: {fileID: 70292289}
   player: {fileID: 1536405726}
+  chatManager: {fileID: 593943562}
 --- !u!4 &1974411801
 Transform:
   m_ObjectHideFlags: 0
