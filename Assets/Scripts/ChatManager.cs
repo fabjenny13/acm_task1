@@ -11,7 +11,6 @@ public class ChatManager : MonoBehaviour
     public GameObject chatPanel, textObject;
     public InputField chatBox;
     public GameObject scrollView;
-    public Image bgImage;
 
     public Color playerMessage, info;
 
@@ -63,6 +62,8 @@ public class ChatManager : MonoBehaviour
         Message newMessage = new Message();
         newMessage.text = text;
 
+        
+
         GameObject newText = Instantiate(textObject, chatPanel.transform);
         newMessage.textObject = newText.GetComponent<Text>();
         newMessage.textObject.text = newMessage.text;
@@ -101,7 +102,6 @@ public class Message
     public string text;
     public Text textObject;
     public MessageType messageType;
-
     public enum MessageType
     {
         playerMessage,

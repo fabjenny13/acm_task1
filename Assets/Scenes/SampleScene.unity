@@ -1472,7 +1472,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 28004488}
   m_HandleRect: {fileID: 28004487}
   m_Direction: 2
-  m_Value: 1
+  m_Value: 0
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -1627,6 +1627,7 @@ MonoBehaviour:
   textObject: {fileID: 6948806546841167413, guid: a128bd9f3ca078f4b8ab272ef131af88, type: 3}
   chatBox: {fileID: 767132354}
   scrollView: {fileID: 1488442606}
+  bgImage: {fileID: 3505507046752712955, guid: 4190fd64c0c7f4141a69f05e3c983d82, type: 3}
   playerMessage: {r: 1, g: 1, b: 1, a: 1}
   info: {r: 0.1566037, g: 0.7486419, b: 1, a: 1}
   messageList: []
@@ -4461,7 +4462,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1007562504}
   m_Direction: 0
   m_Value: 0
-  m_Size: 0.99999994
+  m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:

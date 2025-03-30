@@ -33,6 +33,12 @@ public class PlayerMovement : MonoBehaviour
         Cursor.visible = false;
     }
 
+    public void ResetPosition()
+    {
+        gameRestarting = true;
+        canMove = false;
+        transform.position = startingPos;
+    }
     void Update()
     {
 
@@ -76,7 +82,14 @@ public class PlayerMovement : MonoBehaviour
                 runSpeed = 12f;
             }
 
-            characterController.Move(moveDirection * Time.deltaTime);
+            if(gameRestarting)
+            {
+                transform.position = startingPos;
+            }
+            else
+            {
+                characterController.Move(moveDirection * Time.deltaTime);
+            }
 
             if (canMove)
             {
@@ -100,12 +113,7 @@ public class PlayerMovement : MonoBehaviour
     }
 
 
-    public void ResetPosition()
-    {
-        gameRestarting = true;
-        canMove = false;
-        transform.position = startingPos;
-    }
+
 
 }
 
